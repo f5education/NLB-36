@@ -2,7 +2,7 @@
 set +x
 curl --silent --remote-name-all --output-dir /tmp --header "Authorization: token $TOKEN" https://raw.githubusercontent.com/learnf5/eval-reg-keys/main/nginx/nginx-one-eval.{crt,key,jwt}
 echo curl --silent --remote-name-all --output-dir /tmp --header "Authorization: token xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" https://raw.githubusercontent.com/learnf5/eval-reg-keys/main/nginx/nginx-one-eval.{crt,key,jwt}
-echo '***' REG KEYS EVENTUALLY NEED TO BE MOVED FROM github.com/learnf5 TO github.com/$GITHUB '***'
+echo '***' REG KEYS EVENTUALLY NEED TO BE MOVED FROM github.com/learnf5 TO github.com/$GHACCT '***'
 set -x
 until sudo scp /tmp/nginx-one-eval.crt nginx:/etc/ssl/nginx/nginx-repo.crt || (( count++ > 5 )); do sleep 5; done
 until sudo scp /tmp/nginx-one-eval.key nginx:/etc/ssl/nginx/nginx-repo.key || (( count++ > 5 )); do sleep 5; done
