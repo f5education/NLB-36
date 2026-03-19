@@ -21,3 +21,8 @@ sudo scp /tmp/hosts nginx2:/etc/hosts
 sudo scp /tmp/nginx-one-eval.crt nginx2:/etc/ssl/nginx/nginx-repo.crt
 sudo scp /tmp/nginx-one-eval.key nginx2:/etc/ssl/nginx/nginx-repo.key
 sudo scp /tmp/nginx-one-eval.jwt nginx2:/etc/nginx/license.jwt
+
+# restart nginx2
+sleep 5
+sudo ssh nginx2 sudo systemctl stop nginx
+sudo ssh nginx2 sudo systemctl start nginx
